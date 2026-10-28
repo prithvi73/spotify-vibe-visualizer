@@ -17,3 +17,12 @@ df["hour"] = df["ts"].dt.hour
 df["day_name"] = df["ts"].dt.day_name()
 
 print(df[["day_name", "hour"]].head())
+
+
+# Aggregating the data
+grouped_df = df.groupby(["day_name", "hour"]).size().reset_index(name="play_count")
+print(grouped_df.head())
+
+# Converting the grouped_df into a 2D matrix
+matrix_df = grouped_df.pivot(index="day_name", columns="hour", values="play_count")
+print(matrix_df)
