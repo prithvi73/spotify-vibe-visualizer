@@ -32,3 +32,17 @@ day_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
 
 matrix_df = matrix_df.reindex(day_order)
 matrix_df
+
+
+# Visualizing the output
+plt.figure(figsize=(12, 6))
+
+sns.heatmap(matrix_df, cmap="coolwarm", linewidths=0.5)
+
+plt.title("Spotify Streaming Vibe Matrix", fontsize=16, pad=15)
+plt.xlabel("Hour of the Day", fontsize=12)
+plt.ylabel("")
+
+plt.tight_layout()
+plt.show()
+
