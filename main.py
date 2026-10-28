@@ -26,3 +26,9 @@ print(grouped_df.head())
 # Converting the grouped_df into a 2D matrix
 matrix_df = grouped_df.pivot(index="day_name", columns="hour", values="play_count")
 print(matrix_df)
+
+# Getting the days in our matrix in chronological order rather than alphabetical
+day_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+matrix_df = matrix_df.reindex(day_order)
+matrix_df
